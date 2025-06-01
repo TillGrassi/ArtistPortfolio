@@ -19,7 +19,7 @@ export function Navigation({ showAdminAccess = false }: NavigationProps) {
               href="#" 
               className="font-serif text-2xl font-semibold text-deep-charcoal hover:text-gray-600 transition-colors"
             >
-              Elena Rodriguez
+              Till Graßmann
             </a>
             <div className="hidden md:flex space-x-6">
               <a 

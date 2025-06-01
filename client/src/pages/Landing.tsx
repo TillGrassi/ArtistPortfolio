@@ -12,10 +12,10 @@ export default function Landing() {
       <section className="pt-24 pb-16 bg-gradient-to-b from-white to-warm-gray">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h1 className="font-serif text-5xl md:text-7xl font-bold text-deep-charcoal mb-6">
-            Contemporary Expressions
+            Till Graßmann
           </h1>
           <p className="text-xl md:text-2xl text-gray-700 mb-8 max-w-3xl mx-auto leading-relaxed">
-            Exploring the intersection of emotion and form through oil paintings that capture the essence of modern life
+            Landscape paintings that capture the emotional essence of nature through neo-impressionist brushwork and vibrant colors
           </p>
           <a 
             href="#gallery" 

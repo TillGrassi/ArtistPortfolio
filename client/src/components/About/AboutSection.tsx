@@ -5,38 +5,38 @@ export function AboutSection() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div className="order-2 md:order-1">
             <h2 className="font-serif text-4xl md:text-5xl font-semibold text-deep-charcoal mb-6">
-              About Elena
+              About Till
             </h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Elena Rodriguez is a contemporary artist whose work explores the complex relationship between 
-                urban environments and human emotion. Born in Barcelona and now based in Berlin, her paintings 
-                capture the essence of modern life through bold strokes and carefully chosen color palettes.
+                Till Graßmann is a landscape painter with a deep artistic connection that traces back to his childhood. 
+                Influenced by his grandmother, Margret Brink, he has made art a central part of his life. Since 2021, 
+                he has devoted himself intensively to painting, with a particular focus on landscapes.
               </p>
               <p>
-                With over a decade of experience, Elena's work has been featured in galleries across Europe 
-                and North America. Her unique approach combines classical oil painting techniques with 
-                contemporary themes, creating pieces that resonate with viewers on both intellectual and 
-                emotional levels.
+                His work is marked by a strong sense of wanderlust and reflects his deep bond with nature. 
+                Over the years, Till Graßmann has continuously developed his style, leading to a neo-impressionist 
+                approach in his most recent works.
               </p>
               <p>
-                "I believe art should be a conversation between the observer and the observed, a moment 
-                where time stops and understanding transcends words."
+                With expressive brushstrokes and vibrant colors, he captures not only the physical landscape 
+                but also the emotional essence of the scenes he portrays. Each of his paintings represents 
+                another chapter in his ongoing artistic journey.
               </p>
             </div>
             
             <div className="mt-8 flex flex-wrap gap-4">
               <div className="flex items-center text-gray-600">
                 <i className="fas fa-map-marker-alt mr-2"></i>
-                <span>Berlin, Germany</span>
+                <span>Germany</span>
               </div>
               <div className="flex items-center text-gray-600">
                 <i className="fas fa-palette mr-2"></i>
-                <span>Oil & Mixed Media</span>
+                <span>Landscape & Neo-Impressionist</span>
               </div>
               <div className="flex items-center text-gray-600">
                 <i className="fas fa-calendar mr-2"></i>
-                <span>Active since 2012</span>
+                <span>Active since 2021</span>
               </div>
             </div>
           </div>
