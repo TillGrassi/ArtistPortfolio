@@ -1,0 +1,68 @@
+I want to create a personal artist website using React with TypeScript. I should be able to easily edit and extend the code myself. The site should be minimalistic and clean, with the focus on the paintings. Here are the core features:
+
+1. Gallery View Simulation
+
+The homepage should simulate an art gallery: each painting appears as if mounted on a white wall.
+
+Clicking a right arrow turns the view 90 degrees to the next painting, like turning to face the next wall.
+
+This rotation should be smooth and elegant.
+
+Optional: disable or simplify the animation on mobile to avoid performance issues—just a simple slide or fade instead.
+
+2. Painting Interaction
+
+Each painting is clickable. Clicking opens a modal or a dedicated page with a detailed view.
+
+The detail view should contain:
+
+Title
+
+Size (in cm)
+
+Medium
+
+Year
+
+Availability status:
+
+If available → Show a button linking to a contact form to inquire about purchase.
+
+If sold → Show a greyed-out text like “Sold” instead of the button.
+
+3. About Section
+
+Include a page or scrollable section with a short biography, artistic vision, and possibly a photo.
+
+4. Private Upload Interface
+
+A password-protected page for the artist to upload new artworks.
+
+It should contain a form with fields: image upload, title, size, medium, year, availability.
+
+Upon submission, the artwork should be automatically added to the gallery.
+
+Security: authentication should be real (not just frontend-based); keep it lightweight but proper.
+
+5. Gallery Management Features
+
+Paintings should support optional tags or categories (e.g., "landscape", "portrait") for future filtering.
+
+Option to mark artworks as "new" to feature them separately.
+
+Paintings should be lazy-loaded to optimize performance.
+
+6. Contact Form
+
+A simple form with name, email, and message, ideally connected to email forwarding or a backend like Replit DB or a free tier of an email service (e.g., EmailJS, Formspree).
+
+7. Responsive Design
+
+Must work on desktop and mobile.
+
+On desktop, include the immersive rotation animation.
+
+On mobile, use a swipe or tap-based navigation with simpler animation.
+
+Please use clean and modular React + TypeScript, ideally with separate components for gallery, painting detail, contact form, about section, and admin upload panel. Use a simple CSS-in-JS or CSS modules system for styling.
+
