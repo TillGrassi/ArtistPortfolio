@@ -36,10 +36,10 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
-              <h3 className="font-serif text-2xl font-semibold mb-4">Elena Rodriguez</h3>
+              <h3 className="font-serif text-2xl font-semibold mb-4">Till Graßmann</h3>
               <p className="text-gray-300 leading-relaxed">
-                Contemporary artist exploring the intersection of emotion and form through 
-                bold expressions and carefully crafted compositions.
+                Landscape painter capturing the emotional essence of nature through 
+                neo-impressionist brushwork and vibrant colors.
               </p>
             </div>
             

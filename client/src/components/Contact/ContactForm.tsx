@@ -79,15 +79,15 @@ export function ContactForm() {
             <div className="space-y-4">
               <div className="flex items-center">
                 <i className="fas fa-envelope text-deep-charcoal mr-4 w-5"></i>
-                <span className="text-gray-700">elena@elenamoreau.art</span>
+                <span className="text-gray-700">contact@tillgrassmann.art</span>
               </div>
               <div className="flex items-center">
                 <i className="fas fa-phone text-deep-charcoal mr-4 w-5"></i>
-                <span className="text-gray-700">+49 30 123 456 789</span>
+                <span className="text-gray-700">+49 176 123 456 789</span>
               </div>
               <div className="flex items-center">
                 <i className="fas fa-map-marker-alt text-deep-charcoal mr-4 w-5"></i>
-                <span className="text-gray-700">Berlin, Germany</span>
+                <span className="text-gray-700">Germany</span>
               </div>
             </div>
             
