@@ -27,7 +27,7 @@ export function GalleryView() {
     
     if (!isMobile) {
       setIsRotating(true);
-      setTimeout(() => setIsRotating(false), 800);
+      setTimeout(() => setIsRotating(false), 1200);
     }
     
     setCurrentPaintingIndex((prev) => (prev + 1) % paintings.length);
@@ -38,7 +38,7 @@ export function GalleryView() {
     
     if (!isMobile) {
       setIsRotating(true);
-      setTimeout(() => setIsRotating(false), 800);
+      setTimeout(() => setIsRotating(false), 1200);
     }
     
     setCurrentPaintingIndex((prev) => prev === 0 ? paintings.length - 1 : prev - 1);

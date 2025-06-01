@@ -183,6 +183,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
 
   // Serve uploaded files
   app.use('/uploads', express.static(path.join(process.cwd(), 'uploads')));
+  app.use('/assets', express.static(path.join(process.cwd(), 'public/assets')));
 
   const httpServer = createServer(app);
   return httpServer;
