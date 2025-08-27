@@ -1,15 +1,26 @@
 import { useState } from "react";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
-import { apiRequest } from "@/lib/queryClient";
 
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters"),
@@ -22,7 +33,7 @@ type ContactFormData = z.infer<typeof contactFormSchema>;
 
 export function ContactForm() {
   const { toast } = useToast();
-  const queryClient = useQueryClient();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const form = useForm<ContactFormData>({
     resolver: zodResolver(contactFormSchema),
@@ -34,28 +45,17 @@ export function ContactForm() {
     },
   });
 
-  const contactMutation = useMutation({
-    mutationFn: async (data: ContactFormData) => {
-      await apiRequest("POST", "/api/contact", data);
-    },
-    onSuccess: () => {
+  const onSubmit = (data: ContactFormData) => {
+    setIsSubmitting(true);
+    // Simulate a delay to mimic API call
+    setTimeout(() => {
       toast({
         title: "Message sent!",
         description: "Thank you for your inquiry. I'll get back to you soon.",
       });
       form.reset();
-    },
-    onError: (error) => {
-      toast({
-        title: "Error",
-        description: "Failed to send message. Please try again.",
-        variant: "destructive",
-      });
-    },
-  });
-
-  const onSubmit = (data: ContactFormData) => {
-    contactMutation.mutate(data);
+      setIsSubmitting(false);
+    }, 2000);
   };
 
   return (
@@ -66,8 +66,9 @@ export function ContactForm() {
             Get in Touch
           </h2>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
-            Interested in purchasing a piece or commissioning custom work? 
-            I'd love to hear from you and discuss how my art can find a place in your space.
+            Interested in purchasing a piece or commissioning custom work? I'd
+            love to hear from you and discuss how my art can find a place in
+            your space.
           </p>
         </div>
 
@@ -90,24 +91,26 @@ export function ContactForm() {
                 <span className="text-gray-700">Germany</span>
               </div>
             </div>
-            
+
             <div className="mt-8">
-              <h4 className="font-semibold text-deep-charcoal mb-4">Follow My Work</h4>
+              <h4 className="font-semibold text-deep-charcoal mb-4">
+                Follow My Work
+              </h4>
               <div className="flex space-x-4">
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="text-gray-500 hover:text-deep-charcoal transition-colors"
                 >
                   <i className="fab fa-instagram text-2xl"></i>
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="text-gray-500 hover:text-deep-charcoal transition-colors"
                 >
                   <i className="fab fa-facebook text-2xl"></i>
                 </a>
-                <a 
-                  href="#" 
+                <a
+                  href="#"
                   className="text-gray-500 hover:text-deep-charcoal transition-colors"
                 >
                   <i className="fab fa-twitter text-2xl"></i>
@@ -118,7 +121,10 @@ export function ContactForm() {
 
           <div>
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form
+                onSubmit={form.handleSubmit(onSubmit)}
+                className="space-y-6"
+              >
                 <FormField
                   control={form.control}
                   name="name"
@@ -132,7 +138,7 @@ export function ContactForm() {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="email"
@@ -140,41 +146,52 @@ export function ContactForm() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input 
-                          type="email" 
-                          placeholder="your.email@example.com" 
-                          {...field} 
+                        <Input
+                          type="email"
+                          placeholder="your.email@example.com"
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="subject"
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Subject</FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select
+                        onValueChange={field.onChange}
+                        defaultValue={field.value}
+                      >
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select a subject" />
                           </SelectTrigger>
                         </FormControl>
                         <SelectContent>
-                          <SelectItem value="inquiry">General Inquiry</SelectItem>
-                          <SelectItem value="purchase">Purchase Interest</SelectItem>
-                          <SelectItem value="commission">Commission Request</SelectItem>
-                          <SelectItem value="exhibition">Exhibition Opportunity</SelectItem>
+                          <SelectItem value="inquiry">
+                            General Inquiry
+                          </SelectItem>
+                          <SelectItem value="purchase">
+                            Purchase Interest
+                          </SelectItem>
+                          <SelectItem value="commission">
+                            Commission Request
+                          </SelectItem>
+                          <SelectItem value="exhibition">
+                            Exhibition Opportunity
+                          </SelectItem>
                         </SelectContent>
                       </Select>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="message"
@@ -182,23 +199,23 @@ export function ContactForm() {
                     <FormItem>
                       <FormLabel>Message</FormLabel>
                       <FormControl>
-                        <Textarea 
+                        <Textarea
                           rows={5}
                           placeholder="Tell me about your interest in my work..."
-                          {...field} 
+                          {...field}
                         />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
                   )}
                 />
-                
-                <Button 
-                  type="submit" 
+
+                <Button
+                  type="submit"
                   className="w-full bg-deep-charcoal text-white hover:bg-gray-800"
-                  disabled={contactMutation.isPending}
+                  disabled={isSubmitting}
                 >
-                  {contactMutation.isPending ? (
+                  {isSubmitting ? (
                     <>
                       <i className="fas fa-spinner fa-spin mr-2"></i>
                       Sending...

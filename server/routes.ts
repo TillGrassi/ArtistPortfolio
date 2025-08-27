@@ -2,7 +2,7 @@ import type { Express } from "express";
 import express from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
-import { setupAuth, isAuthenticated } from "./replitAuth";
+//import { setupAuth, isAuthenticated } from "./replitAuth";
 import { insertPaintingSchema, insertContactMessageSchema } from "@shared/schema";
 import { z } from "zod";
 import multer from "multer";
@@ -26,10 +26,10 @@ const upload = multer({
 
 export async function registerRoutes(app: Express): Promise<Server> {
   // Auth middleware
-  await setupAuth(app);
+  //await setupAuth(app);
 
   // Auth routes
-  app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
+  /*app.get('/api/auth/user', isAuthenticated, async (req: any, res) => {
     try {
       const userId = req.user.claims.sub;
       const user = await storage.getUser(userId);
@@ -38,7 +38,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
       console.error("Error fetching user:", error);
       res.status(500).json({ message: "Failed to fetch user" });
     }
-  });
+  });*/
 
   // Public painting routes
   app.get('/api/paintings', async (req, res) => {
@@ -89,7 +89,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
   });
 
   // Protected admin routes
-  app.post('/api/admin/paintings', isAuthenticated, upload.single('image'), async (req: any, res) => {
+  app.post('/api/admin/paintings', upload.single('image'), async (req: any, res) => {
     try {
       if (!req.file) {
         return res.status(400).json({ message: "Image file is required" });
@@ -133,7 +133,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.put('/api/admin/paintings/:id', isAuthenticated, async (req: any, res) => {
+  app.put('/api/admin/paintings/:id', async (req: any, res) => {
     try {
       const id = parseInt(req.params.id);
       if (isNaN(id)) {
@@ -156,7 +156,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.delete('/api/admin/paintings/:id', isAuthenticated, async (req: any, res) => {
+  app.delete('/api/admin/paintings/:id', async (req: any, res) => {
     try {
       const id = parseInt(req.params.id);
       if (isNaN(id)) {
@@ -171,7 +171,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  app.get('/api/admin/messages', isAuthenticated, async (req: any, res) => {
+  app.get('/api/admin/messages', async (req: any, res) => {
     try {
       const messages = await storage.getContactMessages();
       res.json(messages);

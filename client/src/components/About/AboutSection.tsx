@@ -9,22 +9,26 @@ export function AboutSection() {
             </h2>
             <div className="space-y-6 text-lg text-gray-700 leading-relaxed">
               <p>
-                Till Graßmann is a landscape painter with a deep artistic connection that traces back to his childhood. 
-                Influenced by his grandmother, Margret Brink, he has made art a central part of his life. Since 2021, 
-                he has devoted himself intensively to painting, with a particular focus on landscapes.
+                Till Graßmann is a landscape painter with a deep artistic
+                connection that traces back to his childhood. Influenced by his
+                grandmother, Margret Brink, he has made art a central part of
+                his life. Since 2021, he has devoted himself intensively to
+                painting, with a particular focus on landscapes.
               </p>
               <p>
-                His work is marked by a strong sense of wanderlust and reflects his deep bond with nature. 
-                Over the years, Till Graßmann has continuously developed his style, leading to a neo-impressionist 
+                His work is marked by a strong sense of wanderlust and reflects
+                his deep bond with nature. Over the years, Till Graßmann has
+                continuously developed his style, leading to a neo-impressionist
                 approach in his most recent works.
               </p>
               <p>
-                With expressive brushstrokes and vibrant colors, he captures not only the physical landscape 
-                but also the emotional essence of the scenes he portrays. Each of his paintings represents 
-                another chapter in his ongoing artistic journey.
+                With expressive brushstrokes and vibrant colors, he captures not
+                only the physical landscape but also the emotional essence of
+                the scenes he portrays. Each of his paintings represents another
+                chapter in his ongoing artistic journey.
               </p>
             </div>
-            
+
             <div className="mt-8 flex flex-wrap gap-4">
               <div className="flex items-center text-gray-600">
                 <i className="fas fa-map-marker-alt mr-2"></i>
@@ -40,11 +44,11 @@ export function AboutSection() {
               </div>
             </div>
           </div>
-          
+
           <div className="order-1 md:order-2">
-            <img 
-              src="https://images.unsplash.com/photo-1581833971358-2c8b550f87b3?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=600&h=700"
-              alt="Elena Rodriguez artist portrait in studio"
+            <img
+              src="assets/Me.JPG"
+              alt="Till Grassmann"
               className="w-full h-96 md:h-full object-cover rounded-lg shadow-xl"
             />
           </div>

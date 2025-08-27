@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { useAuth } from "@/hooks/useAuth";
 
 interface NavigationProps {
   showAdminAccess?: boolean;
@@ -8,13 +7,12 @@ interface NavigationProps {
 
 export function Navigation({ showAdminAccess = false }: NavigationProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('');
-  const [language, setLanguage] = useState('en');
-  const { user, isAuthenticated } = useAuth();
+  const [activeSection, setActiveSection] = useState("");
+  const [language, setLanguage] = useState("en");
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ['gallery', 'about', 'contact'];
+      const sections = ["gallery", "about", "contact"];
       const scrollPosition = window.scrollY + 100;
 
       for (const section of sections) {
@@ -22,8 +20,11 @@ export function Navigation({ showAdminAccess = false }: NavigationProps) {
         if (element) {
           const offsetTop = element.offsetTop;
           const offsetHeight = element.offsetHeight;
-          
-          if (scrollPosition >= offsetTop && scrollPosition < offsetTop + offsetHeight) {
+
+          if (
+            scrollPosition >= offsetTop &&
+            scrollPosition < offsetTop + offsetHeight
+          ) {
             setActiveSection(section);
             break;
           }
@@ -31,8 +32,8 @@ export function Navigation({ showAdminAccess = false }: NavigationProps) {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
@@ -40,76 +41,49 @@ export function Navigation({ showAdminAccess = false }: NavigationProps) {
       <div className="max-w-7xl mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-8">
-            <a 
-              href="#" 
+            <a
+              href="#"
               className="font-serif text-2xl font-semibold text-deep-charcoal hover:text-gray-600 transition-colors"
             >
               Till Graßmann
             </a>
             <div className="hidden md:flex space-x-6">
-              <a 
-                href="#gallery" 
+              <a
+                href="#gallery"
                 className="text-gray-700 hover:text-deep-charcoal transition-colors font-medium"
               >
                 Gallery
               </a>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 className="text-gray-700 hover:text-deep-charcoal transition-colors font-medium"
               >
                 About
               </a>
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="text-gray-700 hover:text-deep-charcoal transition-colors font-medium"
               >
                 Contact
               </a>
             </div>
           </div>
-          
+
           <div className="flex items-center space-x-4">
             {/* Mobile Menu Button */}
-            <button 
+            <button
               className="md:hidden text-gray-700 hover:text-deep-charcoal"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <i className="fas fa-bars text-xl"></i>
             </button>
-            
-            {/* Auth Actions */}
-            {isAuthenticated ? (
-              <div className="hidden md:flex items-center space-x-4">
-                {user && (
-                  <span className="text-sm text-gray-600">
-                    Welcome, {user.firstName || user.email}
-                  </span>
-                )}
-                <Button 
-                  variant="outline" 
-                  size="sm"
-                  onClick={() => window.location.href = '/api/logout'}
-                >
-                  Logout
-                </Button>
-              </div>
-            ) : (
-              <div className="hidden md:flex">
-                <Button 
-                  onClick={() => window.location.href = '/api/login'}
-                  size="sm"
-                >
-                  Login
-                </Button>
-              </div>
-            )}
-            
+
             {/* Admin Access */}
-            {showAdminAccess && isAuthenticated && (
-              <button 
+            {showAdminAccess && (
+              <button
                 className="text-sm text-gray-500 hover:text-deep-charcoal transition-colors"
                 onClick={() => {
-                  const event = new CustomEvent('openAdminPanel');
+                  const event = new CustomEvent("openAdminPanel");
                   window.dispatchEvent(event);
                 }}
               >
@@ -118,47 +92,32 @@ export function Navigation({ showAdminAccess = false }: NavigationProps) {
             )}
           </div>
         </div>
-        
+
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
           <div className="md:hidden bg-white border-t border-light-border mt-4">
             <div className="px-6 py-4 space-y-3">
-              <a 
-                href="#gallery" 
+              <a
+                href="#gallery"
                 className="block text-gray-700 hover:text-deep-charcoal transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Gallery
               </a>
-              <a 
-                href="#about" 
+              <a
+                href="#about"
                 className="block text-gray-700 hover:text-deep-charcoal transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 About
               </a>
-              <a 
-                href="#contact" 
+              <a
+                href="#contact"
                 className="block text-gray-700 hover:text-deep-charcoal transition-colors"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Contact
               </a>
-              {isAuthenticated ? (
-                <button 
-                  className="block w-full text-left text-gray-700 hover:text-deep-charcoal transition-colors"
-                  onClick={() => window.location.href = '/api/logout'}
-                >
-                  Logout
-                </button>
-              ) : (
-                <button 
-                  className="block w-full text-left text-gray-700 hover:text-deep-charcoal transition-colors"
-                  onClick={() => window.location.href = '/api/login'}
-                >
-                  Login
-                </button>
-              )}
             </div>
           </div>
         )}

@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "title": "Beitstadfjord from Follaheia peak after sunset",
+    "imageUrl": "assets/Beitstadfjord from Follaheia peak after sunset.JPG",
+    "year": 2022,
+    "medium": "Acrylic on paper",
+    "size": "40x60cm",
+    "availability": "available",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "Beitstadfjord from Follafoss",
+    "imageUrl": "assets/Beitstadfjord from Follafoss.JPG",
+    "year": 2021,
+    "medium": "Acrylic on paper",
+    "size": "30x40cm",
+    "availability": "sold",
+    "featured": false
+  },
+  {
+    "id": 3,
+    "title": "Cliffside with Building in Lemvig",
+    "imageUrl": "assets/Cliffside with building in Lemvig.jpg",
+    "year": 2020,
+    "medium": "Acrylic on paper",
+    "size": "30x40cm",
+    "availability": "available",
+    "featured": true
+  },
+  {
+    "id": 4,
+    "title": "Full Moon in Lemvig",
+    "imageUrl": "assets/Full moon in Lemvig.JPG",
+    "year": 2019,
+    "medium": "Acrylic on paper",
+    "size": "30x40cm",
+    "availability": "available",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "Möns Klint from Above",
+    "imageUrl": "assets/Mons Klint from above.JPG",
+    "year": 2018,
+    "medium": "Acrylic on paper",
+    "size": "30x40cm",
+    "availability": "available",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "Snowy Forest",
+    "imageUrl": "assets/Snowy forest.JPG",
+    "year": 2017,
+    "medium": "Acrylic on paper",
+    "size": "30x40cm",
+    "availability": "available",
+    "featured": false
+  },
+  {
+    "id": 7,
+    "title": "Bridge in the Salt Marshes",
+    "imageUrl": "assets/Bridge in the salt marshes.jpg",
+    "year": 2016,
+    "medium": "Acrylic on paper",
+    "size": "30x40cm",
+    "availability": "available",
+    "featured": false
+  }
+]
